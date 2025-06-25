@@ -1,0 +1,14 @@
+services:
+  py-load:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: py-nbaload
+    container_name: pynba
+    networks:
+      dbnet:
+        ipv4_address: 10.0.13.211
+
+networks:
+  dbnet:
+    external: true
