@@ -18,3 +18,5 @@ RUN pip3 install --break-system-packages -r requirements.txt
 RUN mkdir logs
 
 COPY src ./src
+
+# CMD ["python3", "src/main.py"]
