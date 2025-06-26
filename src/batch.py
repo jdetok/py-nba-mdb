@@ -15,8 +15,8 @@ def main():
     logs.log_print(start_msg)
 
     logs.append_log(f'Fetching current players first...')
-    # GET PLAYERS
     
+    # GET PLAYERS
     run.fetch_insert_players("WNBA", 0, "2025-26")
     gdates = chunk_dates(dates, size=20)
     

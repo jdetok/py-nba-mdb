@@ -8,15 +8,6 @@ import nba_api.stats.library.http as nba
 # TODO - play by play data with playbyplayv3
 
 def get_players(league='all', current=1, szn=None): # pass 0 to get all players
-    
-    # if dt.now().month not in range(5, 11):
-    #     lgs.remove('WNBA')
-        
-    # if dt.now().month in range(7, 9):
-    #     lgs.remove('NBA')
-        
-    # if dt.now().month in range(5, 10):
-    #     lgs.remove('GNBA')
     lgs = ['NBA', 'WNBA', 'GNBA']
     if league != 'all':
         lgs = [league]
@@ -30,10 +21,6 @@ def get_players(league='all', current=1, szn=None): # pass 0 to get all players
                                                         season=szn if current == 0 else None
                                                         ).get_data_frames()[0]    
             
-            # if lg == "WNBA":
-            #     print(raw[0].shape())
-                # print(raw[0]['DISPLAY_FIRST_LAST'])
-            # print(raw)
             raw['lg'] = lg
             pl = raw.copy()
             pl = pl.rename(columns={'PERSON_ID': 'player_id', 'DISPLAY_FIRST_LAST': 'player',
@@ -42,9 +29,6 @@ def get_players(league='all', current=1, szn=None): # pass 0 to get all players
             pls.append(pl.copy())
         except Exception as e:
             logs.append_log(f'ERROR fetching current players:\n********** {e}')
-            
-        
-        
     return pd.concat(pls)
 
 def game_logs(game_date, game_date_to=None, player_team = 'P', lg = 'NBA'):
@@ -75,7 +59,6 @@ def game_logs(game_date, game_date_to=None, player_team = 'P', lg = 'NBA'):
 
 def main():
     print(get_players('WNBA', 0, '2024-25'))
-    # print(players)
     
 if __name__=='__main__':
         main()
