@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import clean
 import run
 import logs
+import gmail
 
 # db = 'prod'
 
@@ -27,6 +28,10 @@ def main():
     logs.append_log('Team logs fetched and cleaned, starting DB insert...')
     run.inserts(table_dfs)
     logs.log_print('Script complete!', brk=True)
+    
+    gmail.send_summary()
+    
 
 if __name__=='__main__':
     main()
+    
