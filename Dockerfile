@@ -13,7 +13,7 @@ COPY .vimrc /etc/vim/vimrc
 WORKDIR /usr/py
 
 # install py requirements, break flag required to update system packages
-COPY requirements.txt .env .
+COPY . .
 RUN pip3 install --break-system-packages -r requirements.txt
 RUN mkdir logs
 
