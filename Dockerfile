@@ -15,8 +15,6 @@ WORKDIR /usr/py
 # install py requirements, break flag required to update system packages
 COPY . .
 RUN pip3 install --break-system-packages -r requirements.txt
-RUN mkdir logs
+RUN mkdir -p logs
 
 COPY src ./src
-
-# CMD ["python3", "src/main.py"]

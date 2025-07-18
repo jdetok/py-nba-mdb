@@ -1,0 +1,18 @@
+services:
+  py-load:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: py-nbaload
+    container_name: pynba
+    networks:
+      dbnet:
+        ipv4_address: 10.0.13.211
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    command: ["python3", "src/batch.py"]
+
+networks:
+  dbnet:
+    external: true

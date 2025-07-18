@@ -9,7 +9,9 @@ delay = 2
 # db = 'prod'
 
 def main():
-    dates = ['05/25/2025', (datetime.today()).strftime('%m/%d/%Y')]
+    # dates = ['05/25/2025', (datetime.today()).strftime('%m/%d/%Y')]
+    dates = ['06/01/2016', '06/01/2017']
+    season = '2016-17'
     
     start_msg = f'Beginning batch fetch for data from {dates[0]} - {dates[1]}....'
     logs.log_print(start_msg)
@@ -17,7 +19,7 @@ def main():
     logs.append_log(f'Fetching current players first...')
     
     # GET PLAYERS
-    run.fetch_insert_players("WNBA", 0, "2025-26")
+    run.fetch_insert_players("all", 0, season)
     gdates = chunk_dates(dates, size=20)
     
     for i, c in enumerate(gdates):
