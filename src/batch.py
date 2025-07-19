@@ -10,8 +10,8 @@ delay = 2
 
 def main():
     # dates = ['05/25/2025', (datetime.today()).strftime('%m/%d/%Y')]
-    dates = ['06/01/2016', '06/01/2017']
-    season = '2016-17'
+    dates = ['10/16/2012', '06/15/2013']
+    season = '2012-13'
     
     start_msg = f'Beginning batch fetch for data from {dates[0]} - {dates[1]}....'
     logs.log_print(start_msg)
